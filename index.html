@@ -117,9 +117,9 @@
         </div>
 
         <div id="div-options">
-            <img id="rock" src="rock.png" alt="rock" onclick="imageClicked(this.id)">
-            <img id="paper" src="paper.png" alt="paper" onclick="imageClicked(this.id)">
-            <img id="scissors" src="scissors.png" alt="scissors" onclick="imageClicked(this.id)">
+            <img id="rock" src="images/rock.png" alt="rock" onclick="imageClicked(this.id)">
+            <img id="paper" src="images/paper.png" alt="paper" onclick="imageClicked(this.id)">
+            <img id="scissors" src="images/scissors.png" alt="scissors" onclick="imageClicked(this.id)">
         </div>
 
         <div id="announcement-1">
@@ -127,8 +127,8 @@
         </div>
 
         <div id="div-fight-area">
-            <img id="left-opponent" src="rock-left-placeholder.gif" alt="">
-            <img id="right-opponent" src="rock-right-placeholder.gif" alt="">
+            <img id="left-opponent" src="images/rock-left-placeholder.gif" alt="">
+            <img id="right-opponent" src="images/rock-right-placeholder.gif" alt="">
         </div>
 
         <div id="announcement-2">
@@ -203,10 +203,10 @@
 
             clearTimeout(timerId);
 
-            document.getElementById("left-opponent").src = (userChoice + "-" + "left.gif"); //user
+            document.getElementById("left-opponent").src = ("images/" + userChoice + "-" + "left.gif"); //user
 
             let cpuChoice = CalcCpuChoice();
-            document.getElementById("right-opponent").src = (cpuChoice + "-" + "right.gif"); //cpu
+            document.getElementById("right-opponent").src = ("images/" + cpuChoice + "-" + "right.gif"); //cpu
             
             timerId = setTimeout(function(){
                 let  winner = CalcWinner(cpuChoice, userChoice);
