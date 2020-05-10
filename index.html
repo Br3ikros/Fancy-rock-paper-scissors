@@ -135,6 +135,93 @@
             <p id="announcement-2-p"> Good Luck! </p>
         </div>
     </main>
+
+
+
+
+    <script>
+
+        class Player{
+            constructor(name){
+                this.name = name;
+                this.score = 0;
+            }
+        }
+
+        let cpu = new Player("Cpu");
+        let user = new Player("User");
+
+        let timerId;
+
+
+        function CalcCpuChoice(){
+            let rnd = Math.random(1);
+            if (rnd <= 1/3){
+                return "rock";
+            } else if (rnd <= 2/3){
+                return "paper";
+            } else {
+                return "scissors";
+            }
+        }
+
+
+        function CalcWinner(cpuChoice, userChoice){
+            if (cpuChoice == userChoice){
+                return "Draw";
+            } else if (cpuChoice == "rock" && userChoice == "scissors" ){
+                return "Cpu"
+            } else if (cpuChoice == "paper" && userChoice == "rock"){
+                return "Cpu";
+            } else if(cpuChoice == "scissors" && userChoice == "paper"){
+                return "Cpu";
+            } else {
+                return "User";
+            }
+        }
+
+        function UpdateScore(winner){
+            if (winner == "Cpu"){
+                cpu.score++;
+            } else if (winner == "User"){
+                user.score++;
+            }
+        }
+
+        function UpdateAnnouncement(winner, userChoice, cpuChoice){
+            if (winner == "Cpu"){
+                document.getElementById("announcement-2-p").innerHTML = `${userChoice} loses to ${cpuChoice} You Lost! 😔 `;
+            } else if (winner == "User"){
+                document.getElementById("announcement-2-p").innerHTML = `${userChoice} beats ${cpuChoice} You Win! 🔥 `;
+            } else{
+                document.getElementById("announcement-2-p").innerHTML = `${userChoice} equals ${cpuChoice} It's a Draw! 🖌️`;
+            }
+        }
+
+
+        function imageClicked(userChoice){
+
+            clearTimeout(timerId);
+
+            document.getElementById("left-opponent").src = (userChoice + "-" + "left.gif"); //user
+
+            let cpuChoice = CalcCpuChoice();
+            document.getElementById("right-opponent").src = (cpuChoice + "-" + "right.gif"); //cpu
+            
+            timerId = setTimeout(function(){
+                let  winner = CalcWinner(cpuChoice, userChoice);
+                UpdateScore(winner);
+
+                cpuChoice = cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1);
+                userChoice = userChoice.charAt(0).toUpperCase() + userChoice.slice(1)
+
+                UpdateAnnouncement(winner, userChoice, cpuChoice);
+                document.getElementById("computer-score").innerHTML = cpu.score;
+                document.getElementById("user-score").innerHTML = user.score;
+            }, 1100);
+        }
+
+    </script>
     
 
 </body>
