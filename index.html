@@ -4,6 +4,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 
+    <style>
+
+        
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        body{
+            font-family:ASAP, sans-serif;
+            font-weight:bold;
+        }
+
+        header{
+            text-align:center;
+            background-color:black;
+            color:white;
+            font-size:18px;
+            padding: 8px 0;
+        }
+
+        main{
+            width:70%;
+            margin:0 auto;
+            /* background-color:red; */
+        }
+
+        div {
+            display:flex;
+            margin:30 auto;
+            /* background-color:gray; */
+            justify-content:space-evenly;
+            font-size:30px;
+        }
+
+        #div-options{
+            width:50%;
+            margin: 0 auto;
+        }
+
+        #div-options img{
+            transition: all .5s;
+        }
+
+        #div-options img:hover{
+            transform:scale(1.2) rotate(15deg);
+            cursor:pointer;
+        }
+
+        img{
+            margin: 0 30px;
+        }
+
+        #div-fight-area{
+            padding-top:40px;
+            border-top:8px solid black;
+            width:80%;
+            margin-bottom:10px;
+        }
+
+        #left-opponent{
+            width: 200px;
+            height: auto;
+        }
+
+        #right-opponent{
+            width: 200px;
+            height: auto;
+        } 
+
+
+
+        #announcement-1{
+            font-size:22px;
+        }
+        #announcement-2{
+            width:55%;
+            margin-top:0;
+            border: 5px solid black;
+            padding:5px 0;
+            border-radius:20px;
+            background-color: black;
+            color:white;
+        }
+
+        #div-score{
+            justify-content:center;
+            margin: 50px 0;
+        }
+
+        #div-score p{
+            padding:5px 30px;
+
+        }
+
+    </style>
+
 </head>
 <body>
 
